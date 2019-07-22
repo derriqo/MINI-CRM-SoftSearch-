@@ -18,6 +18,5 @@ Auth::routes(['register' => false ]);
 
 Route::get('/home', 'HomeController@index')->name('home');
 
-Route::get('/admin', 'AdminController@admin')    
-    ->middleware('is_admin')    
-    ->name('admin');
+Route::resource('companies', 'CompaniesController');
+
