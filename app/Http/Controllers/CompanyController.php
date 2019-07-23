@@ -95,7 +95,7 @@ class CompanyController extends Controller
         $company->email = $request->get('email');
         $company->logo = $request->get('logo');
         $company->website = $request->get('website');
-        $company->save();
+        $company->update();
 
         return redirect('/companies')->with('success', 'Company updated!');
     }
@@ -106,11 +106,10 @@ class CompanyController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function destroy($id)
-    {
-        $company = Company::find($id);
-        $company->delete();
+    public function destroy($id){
+        Company::destroy($id);
 
-        return redirect('/companies')->with('success', 'Company deleted!');
+        // return redirect('/companies')->with('success', 'Company deleted!');
+        return redirect()->route("companies.index");
     }
 }
