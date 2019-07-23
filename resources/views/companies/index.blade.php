@@ -10,6 +10,7 @@
   <table class="table table-striped">
     <thead>
         <tr>
+          <td></td>
           <td>Company Name</td>
           <td>Email</td>
           <td>Logo</td>
@@ -23,15 +24,13 @@
             <td>{{$company->id}}</td>
             <td>{{$company->company_name}}</td>
             <td>{{$company->email}}</td>
-            <td>{{$company->logo}}</td>
+            <td><img src="{{ url('storage/app/public',$company->logo)}}"/></td>
             <td>{{$company->website}}</td>
-            <td>
-                <a href="{{ route('companies.edit',$company->id)}}" class="btn btn-primary">Edit</a>
+            <td>    <a href="{{ route('companies.edit',$company->id)}}" class="btn btn-primary">Edit</a>
             </td>
             <td>
-                <form action="{{ route('companies.destroy', $company->id)}}" method="post">
-                  @csrf
-                  @method('DELETE')
+                <form action="{{ route('companies.destroy', $company->id)}}" method="POST">
+                {{ csrf_field() }}
                   <button class="btn btn-danger" type="submit">Delete</button>
                 </form>
             </td>

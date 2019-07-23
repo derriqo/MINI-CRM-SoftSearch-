@@ -14,8 +14,8 @@
         </ul>
       </div><br />
     @endif
-      <form method="post" action="{{ route('companies.store') }}">
-          @csrf
+      <form method="POST" action="{{ route('companies.store') }}">
+      {{ csrf_field() }}
           <div class="form-group">    
               <label for="company_name">Company Name:</label>
               <input type="text" class="form-control" name="company_name"/>
