@@ -29,7 +29,8 @@
             </div>
             <div class="form-group">
                 <label for="logo">Logo:</label>
-                <input type="image" class="form-control" name="logo" value={{ $company->city }} />
+                <input type="file" accept="image/*" class="form-control" name="logo" value={{ $company->city }} />
+            
             </div>
             <div class="form-group">
                 <label for="website">Website:</label>

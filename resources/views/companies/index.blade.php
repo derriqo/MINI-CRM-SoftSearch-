@@ -21,11 +21,10 @@
         @foreach($companies as $company)
         <tr>
             <td>{{$company->id}}</td>
-            <td>{{$company->first_name}} {{$company->last_name}}</td>
+            <td>{{$company->company_name}}</td>
             <td>{{$company->email}}</td>
-            <td>{{$company->job_title}}</td>
-            <td>{{$company->city}}</td>
-            <td>{{$company->country}}</td>
+            <td>{{$company->logo}}</td>
+            <td>{{$company->website}}</td>
             <td>
                 <a href="{{ route('companies.edit',$company->id)}}" class="btn btn-primary">Edit</a>
             </td>

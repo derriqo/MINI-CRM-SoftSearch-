@@ -27,7 +27,7 @@
           </div>
           <div class="form-group">
               <label for="logo">Logo:</label>
-              <input type="image" class="form-control" name="logo"/>
+              <input type="file" class="form-control" name="logo"/>
           </div>
           <div class="form-group">
               <label for="website">Website:</label>

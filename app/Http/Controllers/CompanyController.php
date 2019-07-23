@@ -2,10 +2,10 @@
 
 namespace App\Http\Controllers;
 
-use App\Companies;
+use App\Company;
 use Illuminate\Http\Request;
 
-class CompaniesController extends Controller
+class CompanyController extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -14,10 +14,9 @@ class CompaniesController extends Controller
      */
     public function index()
     {
-        $companies = Companies::all();
+        $companies = Company::all();
 
         return view('companies.index', compact('companies'));
-
     }
 
     /**
@@ -73,7 +72,7 @@ class CompaniesController extends Controller
     public function edit($id)
     {
         $company = Company::find($id);
-        return view('companys.edit', compact('company'));   
+        return view('companys.edit', compact('company')); 
     }
 
     /**
@@ -100,7 +99,8 @@ class CompaniesController extends Controller
 
         return redirect('/companies')->with('success', 'Company updated!');
     }
-    /** 
+
+    /**
      * Remove the specified resource from storage.
      *
      * @param  int  $id
@@ -108,7 +108,7 @@ class CompaniesController extends Controller
      */
     public function destroy($id)
     {
-        $company = Contact::find($id);
+        $company = Company::find($id);
         $company->delete();
 
         return redirect('/companies')->with('success', 'Company deleted!');
