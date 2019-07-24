@@ -19,19 +19,22 @@
         </tr>
     </thead>
     <tbody>
+        @php
+          $companyId = 1;
+        @endphp
         @foreach($companies as $company)
         <tr>
-            <td>{{$company->id}}</td>
+            <td>{{ $companyId++ }}</td>
             <td>{{$company->company_name}}</td>
             <td>{{$company->email}}</td>
             <td><img src="{{ url('storage/app/public',$company->logo)}}"/></td>
             <td>{{$company->website}}</td>
-            <td>    <a href="{{ route('companies.edit',$company->id)}}" class="btn btn-primary">Edit</a>
+            <td>    <a href="/create/{{$company->id}}" class="btn btn-primary">Edit</a>
             </td>
             <td>
                 <form action="{{ route('companies.destroy', $company->id)}}" method="POST">
                 {{ csrf_field() }}
-                  <button class="btn btn-danger" type="submit">Delete</button>
+                  <a href="/destroy/{{$company->id}}" class="btn btn-danger">Delete</a>
                 </form>
             </td>
         </tr>

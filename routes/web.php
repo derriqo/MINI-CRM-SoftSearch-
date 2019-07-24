@@ -18,6 +18,9 @@ Auth::routes(['register' => false ]);
 
 Route::get('/home', 'HomeController@index')->name('home');
 
+Route::get('/destroy/{company_id}', 'CompanyController@destroy');
+
+Route::get('/edit/{company_id}', 'CompanyController@edit');
 
 Route::resource('companies', 'CompanyController');
 
