@@ -64,6 +64,12 @@ class CompanyController extends Controller
         //
     }
 
+    public function formedit(Request $request, $company_id)
+    {
+        $company = Company::find($company_id);
+        return view('companies.edit', ['company' => $company]);
+    }
+
     /**
      * Show the form for editing the specified resource.
      *
@@ -71,14 +77,13 @@ class CompanyController extends Controller
      * @return \Illuminate\Http\Response
      */
 
-    public function edit(Request $request, $company_id)
+    public function edit(Request $request, Company $id)
     {
-
-
-        DB::table('companies')->where('id', $company_id)->update([
-            'company_name' => $request->input('company_name'),
+        Company::where('id', $id)->update([
+            'company_name' => $request->input('company_name')
         ]);
-        // return view('companies.edit', compact('company')); 
+
+        return redirect('/companies')->with('success', 'Company updated!');
 
     }
 

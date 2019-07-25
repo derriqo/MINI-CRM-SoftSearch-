@@ -14,7 +14,7 @@
         </div>
         <br /> 
         @endif
-        <form method="POST" action="{{ route('companies.update', $company->id) }}">
+        <form method="POST" action="/companies/{{$company->id}}">
         {{ csrf_field() }}
             <div class="form-group">
 
